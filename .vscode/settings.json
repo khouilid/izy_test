@@ -4,8 +4,6 @@
     "source.fixAll": "explicit"
   },
   "dart.previewFlutterUiGuides": true,
-  "debug.openDebug": "openOnDebugBreak",
-  "debug.toolBarLocation": "commandCenter",
   "debug.internalConsoleOptions": "openOnSessionStart",
   "[dart]": {
     "editor.formatOnSave": true,
@@ -22,7 +20,7 @@
   },
   "files.exclude": {
     "**/*.freezed.dart": true,
-    "**/*.g.dart": true
+    // "**/*.g.dart": true
   },
   "dart.flutterSdkPath": ".fvm/versions/stable",
   "search.exclude": {
