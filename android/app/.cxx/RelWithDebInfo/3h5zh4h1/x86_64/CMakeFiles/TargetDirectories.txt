@@ -1,0 +1,2 @@
+/Users/macbook/Developer/izy_test/android/app/.cxx/RelWithDebInfo/3h5zh4h1/x86_64/CMakeFiles/edit_cache.dir
+/Users/macbook/Developer/izy_test/android/app/.cxx/RelWithDebInfo/3h5zh4h1/x86_64/CMakeFiles/rebuild_cache.dir
