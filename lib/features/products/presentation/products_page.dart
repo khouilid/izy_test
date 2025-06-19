@@ -24,6 +24,8 @@ class _OverViewObservation extends ConsumerState<ProductsPage> {
   @override
   Widget build(BuildContext context) {
     // list of products
+    final bannerItems = ref.watch(bannerProvider);
+
     ref.listen(productsApplicationProvider, (previous, next) {
       next.maybeMap(
         success: (products) {
@@ -89,16 +91,44 @@ class _OverViewObservation extends ConsumerState<ProductsPage> {
         centerTitle: false,
         title: Text('Products'),
         actions: [
-          IconButton(
-            icon: const Icon(Icons
-                .shopping_basket_rounded), // Or any other appropriate banner icon
-            tooltip: 'View Banner Products',
-            onPressed: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => BannerProductsPage()));
-            },
+          Stack(
+            children: [
+              IconButton(
+                icon: const Icon(Icons.shopping_basket_rounded),
+                tooltip: 'View Banner Products',
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => BannerProductsPage()),
+                  );
+                },
+              ),
+              if (bannerItems.length > 0)
+                Positioned(
+                  right: 8,
+                  top: 8,
+                  child: Container(
+                    padding: const EdgeInsets.all(2),
+                    decoration: BoxDecoration(
+                      color: ColorManager.valentineRed,
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    constraints: const BoxConstraints(
+                      minWidth: 16,
+                      minHeight: 16,
+                    ),
+                    child: Text(
+                      bannerItems.length.toString(),
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 10,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                ),
+            ],
           ),
         ],
       ),
