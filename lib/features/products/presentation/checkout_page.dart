@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:izy_test/core/helpers/color_manager.dart';
+import 'package:izy_test/features/products/domain/product_model.dart';
+import 'package:izy_test/features/products/presentation/widgets/cart_item_card.dart';
 import 'package:izy_test/features/products/providers/products_provider.dart';
 
 class CheckoutPage extends ConsumerWidget {
@@ -16,7 +18,7 @@ class CheckoutPage extends ConsumerWidget {
         );
 
     final cartItems = ref.watch(bannerProvider);
-    
+
     double totalPrice = 0.0;
     if (cartItems.isNotEmpty) {
       totalPrice = cartItems.fold(0.0, (sum, item) {
@@ -60,11 +62,12 @@ class CheckoutPage extends ConsumerWidget {
                       : const Icon(Icons.image_not_supported, size: 50),
                   title: Text(product.title),
                   subtitle: Text('Quantity: $quantity'),
-                  trailing: Text('\$${((product.price) * quantity).toStringAsFixed(2)}'),
+                  trailing: Text(
+                      '\$${((product.price) * quantity).toStringAsFixed(2)}'),
                 );
               },
             ),
-            const Divider(height: 22.0),
+            // const Divider(height: 22.0),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
