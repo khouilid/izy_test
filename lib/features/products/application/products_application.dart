@@ -1,4 +1,4 @@
-import 'package:boilerplate_app/features/products/domain/product_model.dart';
+import 'package:izy_test/features/products/domain/product_model.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../infrastructure/repositories/products_repository.dart';
 import 'products_state.dart';
@@ -35,10 +35,13 @@ class ProductsApplicationNotifier extends StateNotifier<ProductsState> {
 
   Future<void> checkout(List<Map<ProductModel, int>> cartItems) async {
     state = const ProductsState.checking();
-    final result = await _repository.checkout(cartItems);
-    result.fold(
-      (failure) => state = ProductsState.error(failure),
-      (products) => state = ProductsState.checked(),
-    );
+    // this delay is for testing purposes simulating a network delay
+    Future.delayed(const Duration(seconds: 3), () async {
+      final result = await _repository.checkout(cartItems);
+      result.fold(
+        (failure) => state = ProductsState.error(failure),
+        (products) => state = ProductsState.checked(),
+      );
+    });
   }
 }

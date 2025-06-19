@@ -1,8 +1,8 @@
-import 'package:boilerplate_app/config/providers/network_provider.dart';
-import 'package:boilerplate_app/features/products/infrastructure/DTO/product_dto.dart';
+import 'package:izy_test/config/providers/network_provider.dart';
+import 'package:izy_test/features/products/infrastructure/DTO/product_dto.dart';
 import 'package:dio/dio.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:boilerplate_app/config/infrastructure/helpers/remote_service_helper.dart';
+import 'package:izy_test/config/infrastructure/helpers/remote_service_helper.dart';
 part 'products_api_service.g.dart';
 
 @Riverpod()

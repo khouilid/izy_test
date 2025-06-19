@@ -7,7 +7,7 @@ part of 'products_api_service.dart';
 // **************************************************************************
 
 String _$productsApiServiceHash() =>
-    r'f9b566025bb7aed2b7b6bf2634b3fa2ab203178e';
+    r'8a39679847c3f7b744714840c50a095e39d3d15c';
 
 /// See also [ProductsApiService].
 @ProviderFor(ProductsApiService)

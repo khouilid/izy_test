@@ -1,4 +1,4 @@
-# Flutter Boilerplate App Architecture
+# Izy test Architecture
 
 This project follows a clean architecture approach, organized by features with a well-defined separation of concerns.
 

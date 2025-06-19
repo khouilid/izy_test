@@ -1,8 +1,8 @@
-import 'package:boilerplate_app/core/helpers/color_manager.dart';
-import 'package:boilerplate_app/features/products/domain/product_model.dart';
-import 'package:boilerplate_app/features/products/presentation/banner_products_page.dart';
-import 'package:boilerplate_app/features/products/presentation/widgets/product_card.dart';
-import 'package:boilerplate_app/features/products/providers/products_provider.dart';
+import 'package:izy_test/core/helpers/color_manager.dart';
+import 'package:izy_test/features/products/domain/product_model.dart';
+import 'package:izy_test/features/products/presentation/banner_products_page.dart';
+import 'package:izy_test/features/products/presentation/widgets/product_card.dart';
+import 'package:izy_test/features/products/providers/products_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -71,12 +71,12 @@ class _OverViewObservation extends ConsumerState<ProductsPage> {
         },
         checked: (value) {
           ref.invalidate(bannerProvider);
-          Navigator.pop(context);
+          Navigator.popUntil(context, ModalRoute.withName('/'));
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
                 duration: Duration(seconds: 2),
                 backgroundColor: ColorManager.chateauGreen,
-                content: Text('Checked')),
+                content: Text('Your order has been placed successfully!')),
           );
         },
         orElse: () {},
@@ -130,7 +130,6 @@ class _OverViewObservation extends ConsumerState<ProductsPage> {
                               product: product,
                               quantity: quantity,
                               onQuantityChanged: (quantity) {
-                                
                                 ref
                                     .read(productsApplicationProvider.notifier)
                                     .addProductToBanner(product, quantity);

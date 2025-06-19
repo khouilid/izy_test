@@ -1,16 +1,15 @@
 import 'dart:io';
 
-import 'package:boilerplate_app/config/domain/remote_response.dart';
-import 'package:boilerplate_app/config/infrastructure/exceptions/dio_exception.dart' as exp;
-import 'package:boilerplate_app/config/infrastructure/extensions/dio_extensions.dart';
+import 'package:izy_test/config/domain/remote_response.dart';
+import 'package:izy_test/config/infrastructure/exceptions/dio_exception.dart'
+    as exp;
+import 'package:izy_test/config/infrastructure/extensions/dio_extensions.dart';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:logger/logger.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
 
 mixin RemoteServiceHelper {
-
-
   // Consider moving this transaction to a more specific location since it's named for a specific batch process
   final transaction = Sentry.startTransaction('processOrderBatch()', 'task');
 
@@ -18,7 +17,8 @@ mixin RemoteServiceHelper {
   Future<T> remoteResponseHandler<T>(
     Future<Response<dynamic>> function, [
     T Function(dynamic response)? mapFunction,
-  ]) async =>  await _handleResponse<T, T>(function, mapFunction) as T;
+  ]) async =>
+      await _handleResponse<T, T>(function, mapFunction) as T;
 
   // Well structured method for handling API responses with proper error handling
   Future<RemoteResponse<T>> withRemoteResponse<T>(
@@ -74,9 +74,9 @@ mixin RemoteServiceHelper {
         if (throwError) {
           return mapFunction != null ? mapFunction(response.data) : unit;
         } else {
-          return mapFunction != null 
-            ? RemoteResponse.withData(mapFunction(response.data))
-            : const RemoteResponse.withData(unit);
+          return mapFunction != null
+              ? RemoteResponse.withData(mapFunction(response.data))
+              : const RemoteResponse.withData(unit);
         }
       } else {
         if (response.statusCode == 500) {

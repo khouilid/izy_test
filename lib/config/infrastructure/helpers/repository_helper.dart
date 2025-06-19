@@ -1,6 +1,6 @@
-import 'package:boilerplate_app/config/domain/failure.dart';
-import 'package:boilerplate_app/config/domain/fresh.dart';
-import 'package:boilerplate_app/config/infrastructure/exceptions/dio_exception.dart';
+import 'package:izy_test/config/domain/failure.dart';
+import 'package:izy_test/config/domain/fresh.dart';
+import 'package:izy_test/config/infrastructure/exceptions/dio_exception.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/services.dart';
 

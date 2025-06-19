@@ -1,8 +1,8 @@
 import 'dart:async';
-import 'package:boilerplate_app/config/infrastructure/helpers/repository_helper.dart';
-import 'package:boilerplate_app/features/products/domain/product_model.dart';
-import 'package:boilerplate_app/features/products/infrastructure/DTO/product_dto.dart';
-import 'package:boilerplate_app/features/products/infrastructure/services/products_api_service.dart';
+import 'package:izy_test/config/infrastructure/helpers/repository_helper.dart';
+import 'package:izy_test/features/products/domain/product_model.dart';
+import 'package:izy_test/features/products/infrastructure/DTO/product_dto.dart';
+import 'package:izy_test/features/products/infrastructure/services/products_api_service.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'products_repository.g.dart';

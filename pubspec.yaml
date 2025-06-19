@@ -1,19 +1,16 @@
-name: boilerplate_app
+name: izy_test
 description: "A new Flutter project."
 
-publish_to: 'none' # Remove this line if you wish to publish to pub.dev
-
+publish_to: "none" # Remove this line if you wish to publish to pub.dev
 
 version: 1.0.0+1
 
 environment:
-  sdk: '>=3.2.3 <4.0.0'
-
+  sdk: ">=3.2.3 <4.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
-
 
   cupertino_icons: ^1.0.2
   equatable: ^2.0.5
@@ -22,7 +19,7 @@ dependencies:
   logger: ^2.4.0
   json_annotation: ^4.9.0
   dio: ^5.4.0
-  flutter_secure_storage: ^4.2.1
+  # flutter_secure_storage: ^4.2.1
   connectivity_plus: ^6.1.3
   sentry_flutter: ^8.14.1
   dartz: ^0.10.1
@@ -33,7 +30,6 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-
 
   flutter_lints: ^2.0.0
   build_runner: ^2.5.2

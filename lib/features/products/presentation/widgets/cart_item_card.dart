@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:boilerplate_app/features/products/domain/product_model.dart'; // Adjust if your project name is different
-import 'package:boilerplate_app/core/helpers/color_manager.dart'; // Assuming ColorManager is used
+import 'package:izy_test/features/products/domain/product_model.dart'; // Adjust if your project name is different
+import 'package:izy_test/core/helpers/color_manager.dart'; // Assuming ColorManager is used
 
 class CartItemCard extends StatelessWidget {
   final ProductModel product;

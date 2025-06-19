@@ -1,6 +1,6 @@
 {
-    "name": "boilerplate_app",
-    "short_name": "boilerplate_app",
+    "name": "izy_test",
+    "short_name": "izy_test",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

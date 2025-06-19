@@ -1,4 +1,4 @@
-import 'package:boilerplate_app/config/env/env.dart';
+import 'package:izy_test/config/env/env.dart';
 import 'package:dio/dio.dart';
 import 'package:logger/logger.dart';
 
@@ -50,7 +50,6 @@ class DioConfig {
   static InterceptorsWrapper _createAuthInterceptor() {
     return InterceptorsWrapper(
       onRequest: (options, handler) {
- 
         return handler.next(options);
       },
     );
