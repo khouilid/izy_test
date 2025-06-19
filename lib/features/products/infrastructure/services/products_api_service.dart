@@ -24,4 +24,16 @@ class ProductsApiService extends _$ProductsApiService with RemoteServiceHelper {
       },
     );
   }
+
+  Future<void> checkout(List<Map<ProductDto, int>> cartItems) async {
+    final formData = ProductDto().toFormData(cartItems);
+
+    Future.delayed(const Duration(seconds: 5), () {
+      return;
+    });
+    // return remoteResponseHandler(
+    //   _dio.post('/checkout', data: formData),
+    //   (data) {
+  }
+  // );
 }

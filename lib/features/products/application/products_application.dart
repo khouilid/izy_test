@@ -1,3 +1,4 @@
+import 'package:boilerplate_app/features/products/domain/product_model.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../infrastructure/repositories/products_repository.dart';
 import 'products_state.dart';
@@ -16,6 +17,28 @@ class ProductsApplicationNotifier extends StateNotifier<ProductsState> {
     result.fold(
       (failure) => state = ProductsState.error(failure),
       (products) => state = ProductsState.success(products),
+    );
+  }
+
+  Future<void> addProductToBanner(ProductModel product, int quantity) async {
+    state = ProductsState.addProductToBanner(product, quantity);
+  }
+
+  Future<void> updateProductQuantityInBanner(
+      ProductModel product, int newQuantity) async {
+    state = ProductsState.updateProductQuantityInBanner(product, newQuantity);
+  }
+
+  Future<void> removeProductFromBanner(ProductModel product) async {
+    state = ProductsState.removeProductFromBanner(product);
+  }
+
+  Future<void> checkout(List<Map<ProductModel, int>> cartItems) async {
+    state = const ProductsState.checking();
+    final result = await _repository.checkout(cartItems);
+    result.fold(
+      (failure) => state = ProductsState.error(failure),
+      (products) => state = ProductsState.checked(),
     );
   }
 }

@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:boilerplate_app/config/infrastructure/helpers/repository_helper.dart';
 import 'package:boilerplate_app/features/products/domain/product_model.dart';
+import 'package:boilerplate_app/features/products/infrastructure/DTO/product_dto.dart';
 import 'package:boilerplate_app/features/products/infrastructure/services/products_api_service.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
@@ -19,6 +20,18 @@ class ProductsRepository extends _$ProductsRepository with RepositoryHelper {
     return handleData(
       _apiService.getAllProducts(),
       (data) async => data.map((e) => e.toDomain()).toList(),
+    );
+  }
+
+  FutureEitherFailureOr<void> checkout(
+      List<Map<ProductModel, int>> cartItems) async {
+    final cartItemsDto = cartItems
+        .map((item) => item.map((product, quantity) =>
+            MapEntry(ProductDto.fromDomain(product), quantity)))
+        .toList();
+    return handleData(
+      _apiService.checkout(cartItemsDto),
+      (data) async => data,
     );
   }
 }

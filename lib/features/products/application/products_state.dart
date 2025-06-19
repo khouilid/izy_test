@@ -13,4 +13,29 @@ class ProductsState with _$ProductsState {
     List<ProductModel> products,
   ) = _Success;
   const factory ProductsState.error(Failure failure) = _Error;
+
+
+
+  // add product to banner
+  const factory ProductsState.addProductToBanner(
+    ProductModel product,
+    int quantity,
+  ) = _AddProductToBanner;
+
+  // Update product quantity in banner
+  const factory ProductsState.updateProductQuantityInBanner(
+    ProductModel product,
+    int newQuantity,
+  ) = _UpdateProductQuantityInBanner;
+
+  // Remove product from banner
+  const factory ProductsState.removeProductFromBanner(
+    ProductModel product,
+  ) = _RemoveProductFromBanner;
+
+
+
+  const factory ProductsState.checking() = _Checking;
+  const factory ProductsState.checked() = _Checked;
+
 }

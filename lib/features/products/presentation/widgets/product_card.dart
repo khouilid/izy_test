@@ -5,14 +5,17 @@ import 'package:boilerplate_app/features/products/domain/product_model.dart';
 
 class ProductCard extends HookWidget {
   final ProductModel product;
+  final int quantity;
   final Function(int) onQuantityChanged;
 
   const ProductCard(
-      {super.key, required this.product, required this.onQuantityChanged});
+      {super.key,
+      required this.product,
+      required this.quantity,
+      required this.onQuantityChanged});
 
   @override
   Widget build(BuildContext context) {
-    final _quantity = useState(0);
     return Card(
       elevation: 0,
       color: ColorManager.white,
@@ -77,18 +80,18 @@ class ProductCard extends HookWidget {
                         IconButton(
                           icon: const Icon(Icons.remove_circle_outline),
                           onPressed: () {
-                            if (_quantity.value > 0) {
-                              _quantity.value--;
+                            if (quantity > 0) {
+                              onQuantityChanged(quantity - 1);
                             }
-                            onQuantityChanged(_quantity.value);
                           },
                         ),
-                        Text('${_quantity.value}',
-                            style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+                        Text('${quantity}',
+                            style: const TextStyle(
+                                fontSize: 16, fontWeight: FontWeight.bold)),
                         IconButton(
                           icon: const Icon(Icons.add_circle_outline),
                           onPressed: () {
-                            _quantity.value++;
+                            onQuantityChanged(quantity + 1);
                           },
                         ),
                       ],
